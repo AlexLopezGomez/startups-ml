@@ -35,8 +35,8 @@ def main():
     if args.train:
         print('Entrenando el modelo...')
         # Cargar datos de entrenamiento
-        X_train = pd.read_csv(DATA_DIR / 'X_test.csv')
-        y_train = pd.read_csv(DATA_DIR / 'y_test.csv')
+        X_train = pd.read_csv(DATA_DIR / 'X_train.csv')
+        y_train = pd.read_csv(DATA_DIR / 'y_train.csv')
         # Entrenar el modelo usando la función modular
         # Puedes ajustar el modelo aquí según tu pipeline real
         from sklearn.ensemble import RandomForestClassifier
