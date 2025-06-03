@@ -8,7 +8,12 @@ from pathlib import Path
 # Añadir directorio raíz al path
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from src.config import INTERIM_DATA_DIR, PROCESSED_DATA_DIR, TARGET_COLUMN
+from src.config import (
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    TARGET_COLUMN,
+    RAW_DATA_DIR,
+)
 
 def handle_missing_values(df, strategy='median'):
     """
