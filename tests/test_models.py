@@ -64,3 +64,10 @@ def test_perform_bias_variance_analysis():
     assert isinstance(train_scores, list)
     assert isinstance(test_scores, list)
     assert best == 1
+
+
+def test_load_model_not_found(tmp_path):
+    """Verifica que load_model lance FileNotFoundError cuando el archivo no existe."""
+    nonexistent = tmp_path / "no_model.pkl"
+    with pytest.raises(FileNotFoundError):
+        load_model(nonexistent)
