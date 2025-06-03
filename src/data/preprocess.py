@@ -8,7 +8,12 @@ from pathlib import Path
 # Añadir directorio raíz al path
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from src.config import INTERIM_DATA_DIR, PROCESSED_DATA_DIR, TARGET_COLUMN
+from src.config import (
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    TARGET_COLUMN,
+    RAW_DATA_FILE,
+)
 
 def handle_missing_values(df, strategy='median'):
     """
@@ -125,7 +130,9 @@ def main():
         df = pd.read_csv(PROCESSED_DATA_DIR / "startup_data_validated.csv")
     except FileNotFoundError:
         print("Archivo validado no encontrado. Cargando datos crudos...")
-        df = pd.read_csv(RAW_DATA_DIR / "startup_success_prediction.csv")
+        # Si no existe el dataset validado, usa el dataset crudo
+        # definido en la configuración del proyecto
+        df = pd.read_csv(RAW_DATA_FILE)
     
     print("Aplicando preprocesamiento...")
     # Guardar versión con preprocesamiento básico (sin escalado)
