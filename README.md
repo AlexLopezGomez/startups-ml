@@ -53,7 +53,6 @@ startups-ml/
 ├── reports/               # Figuras y resultados finales
 ├── tests/                 # Pytest unit tests
 ├── app.py                 # API FastAPI
-├── setup.py               # Instalación editable
 ├── requirements.txt       # Dependencias en producción
 └── README.md              # ¡Estás aquí!
 ```
